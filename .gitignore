@@ -1,3 +1,11 @@
+## General files to ignore
+.*
+!.gitignore
+_*
+
+## PSPad project file
+*.ppr
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
@@ -6,6 +14,7 @@
 *.fls
 *.out
 *.toc
+*/tex-aux/*
 
 ## Intermediate documents:
 *.dvi

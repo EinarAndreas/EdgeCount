@@ -1,0 +1,76 @@
+%% Alternative definitions of APT macros
+
+%%% Setup
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage[a4paper,hmargin=30mm,vmargin=20mm]{geometry}
+\usepackage{times}
+\usepackage{amsthm}
+
+
+%%% Macro definitions
+\makeatletter
+
+%% Markup draft specific code
+\newcommand\DRAFT[1]{#1}
+
+
+%% APT macros
+\newtheorem{theorem}{\noindent Theorem}
+\newtheorem{lemma}{\noindent Lemma}
+\newtheorem{corollary}{\noindent Corollary}
+\newtheorem{proposition}{\noindent Proposition}
+\newtheorem{conjecture}{\noindent Conjecture}
+\newtheorem{assertion}{\noindent Assertion}
+\newtheorem{assumption}{\noindent Assumption}
+\newtheorem{condition}{\noindent Condition}
+\newcommand\authornames[1]{\author{#1}}
+\newcommand\shorttitle[1]{}
+\def\authorone[#1]#2{}
+\def\addressone#1{}
+\newcommand\keywords[1]{}
+\newcommand\ams[2]{}
+\newcommand\ack{\section*{Acknowledgement}}
+\newcommand\Ack{\section*{Acknowledgement}}
+\newcommand\acks{\section*{Acknowledgements}}
+\newcommand\Acks{\section*{Acknowledgements}}
+
+
+%% Styling macros
+\newcommand\StyleTitleSimple{
+  \renewcommand\@maketitle{%
+  \newpage\null\vskip 2em%
+  \begin{center}%
+  \let\footnote\thanks
+  {\LARGE \@title \par}\vskip 0.5em%
+  {\large\@author, \today}%
+  \end{center}%
+  \par
+  \vskip 1.5em
+	}
+}
+\newcommand\StyleAbstractSimple{
+  \renewcommand\abstractname{Abstract}
+  \renewenvironment{abstract}{%
+    \begin{center}%
+      {\slshape\bfseries\large\abstractname\vspace{-.5em}\vspace{\z@}}%
+    \end{center}%
+    \vskip 4pt
+    \slshape
+  }{
+  \vskip 0.5em
+  }
+}
+\newcommand\StyleHeaderMathBold{
+  \DeclareRobustCommand*{\bfseries}{%
+    \not@math@alphabet\bfseries\mathbf
+    \fontseries\bfdefault\selectfont
+    \boldmath
+  }
+}
+
+\makeatother
+
+%% Set style selections
+\StyleTitleSimple
